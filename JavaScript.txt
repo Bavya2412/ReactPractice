@@ -1,0 +1,523 @@
+//Arrow Func
+const cube=(a)->a*a*a
+let num=praseIntprompt(("enter a number"));
+let res=cube(num);
+console.log(res);
+
+//for loop
+let books = ["dsa", "c++", "java", "react", "node js"];
+let price = [100, 200, 400, 100, 400];
+let qty = [20, 30, 50, 60, 40];
+
+let name = prompt("enter book:");
+let flag = 0;
+
+for (let i = 0; i < books.length; i++) {
+    if (books[i] === name) {
+        flag = 1;
+        let quantity = parseInt(prompt("enter quantity:"));
+        if (quantity <= qty[i]) {
+            let bill = price[i] * quantity;
+            console.log("bill: " + bill);
+        } else {
+            console.log("quantity not available");
+        }
+        break;
+    }
+}
+
+if (flag === 0) {
+    console.log("book not found");
+}
+
+
+//Simple if else
+let userId = prompt("Enter User ID:");
+let password = prompt("Enter Password:");
+
+const validUser = "admin";
+const validPass = "1234";
+
+if (userId === validUser && password === validPass) {
+  alert("Login successful!");
+} else {
+  alert("Invalid User ID or Password.");
+}
+
+
+//List destructuring
+
+let user=[21,"asha",20,"dsa"]
+ 
+/*let name=user[1]
+let age=user[0]
+let marks=user[2]
+ 
+let sub=user[3]*/
+ 
+ 
+let [age,name,marks,sub]=user
+ 
+console.log(`name ${name} age   ${age} marks  ${marks}  sub  ${sub} `)//`` backticks (`) allow you to create multi-line strings easily — no need for \n or string concatenation.You can embed variables and expressions directly inside strings.
+
+
+/ ...
+// ... spread    
+ 
+ 
+let user=[21,"asha",20,"dsa","c++","dbms","os"]
+ 
+/*let name=user[1]
+let age=user[0]
+let marks=user[2]
+ 
+let sub=user[3]*/
+ 
+let [age,name,marks,...sub]=user//for multiple subjects(rest operator)this opertor will take a list of values
+ 
+console.log(`name ${name} age   ${age} marks  ${marks}  sub  ${sub} `)
+
+
+let passenger = ["bavya", "Bangalore", "Chennai", "Sleeper", "AC", "Seat 21"];
+
+
+// Destructure name, source, destination; rest go into travel preferences
+
+let [name, from, to, ...preferences] = passenger;//...preferences this will take the other details of passengers to hold more values we use this rest operator
+
+console.log(`Name: ${name}`);
+console.log(`From: ${from}`);
+console.log(`To: ${to}`);
+console.log(`Preferences: ${preferences}`);
+
+
+//Spread operator
+
+let user1=[21,"asha",20,"dsa"]
+ 
+let user2=[]
+ 
+user2=[...user1]//The operator you're using here is the spread operator (...), and it's used to copy elements of an array (or object) into another.
+ 
+user2[1]="Ajay"
+console.log(user1)
+
+//After changing user2[1], it doesn't affect user1 — because it's a shallow copy, not a reference.
+
+So user1 remains unchanged.
+
+
+let user=[21,"asha",20,"dsa"]
+ 
+ 
+user=["22222222",...user,"c++","os"]//it let us to add the values form thw user 
+
+console.log(user)
+
+
+
+et student = {
+    "name": "bavya",
+    "dept": "cs",
+    "subjects": ["Maths", "Java", "Dbms"]//we can create list also
+};
+ 
+console.log(student);
+
+
+
+let books=[{name:"dsa",price:200,city:["pune","delhi"],qty:10},
+{name:"dsa",price:200,city:["pune","delhi"],qty:10},
+{name:"c++",price:300,city:["pune","mumbai"],qty:20},
+{name:"dbms",price:700,city:["pune","delhi"],qty:80},
+{name:"dsa",price:200,city:["mumbai","delhi"],qty:10}
+]
+ 
+// take book
+ 
+ 
+for(let i=0;i<books.length;i++)
+{
+   console.log(books[i].city[0]) 
+}
+ 
+
+
+//foreach-this eill only do waht is said simpley dispaly but it doesnt return value to store it in future so we go for map 
+let books=[{name:"dsa",price:200,city:["pune","delhi"],qty:10},
+{name:"dsa",price:200,city:["pune","delhi"],qty:10},
+{name:"c++",price:300,city:["pune","mumbai"],qty:20},
+{name:"dbms",price:700,city:["pune","delhi"],qty:80},
+{name:"dsa",price:200,city:["mumbai","delhi"],qty:10}
+]
+book.forEach((i)=>console.log(i))//will dispaly all
+books.forEach(i)=>console.log(i.price))//will diaply only price
+books.forEach((i)=>
+{
+if(i.name=="dsa")
+{
+     console.log(i)
+}
+})//will dispay the namw with dsa
+
+
+
+
+let books=[{name:"dsa",price:200,city:["pune","delhi"],qty:10},
+ 
+{name:"dsa",price:200,city:["pune","delhi"],qty:10},
+ 
+{name:"c++",price:300,city:["pune","mumbai"],qty:20},
+ 
+{name:"dbms",price:700,city:["pune","delhi"],qty:80},
+ 
+{name:"dsa",price:200,city:["mumbai","delhi"],qty:10}
+ 
+]
+ 
+let book = prompt("Enter the book:");
+
+let flag=0;
+ 
+for (let i = 0; i < books.length; i++) {
+
+  if(books[i].name == book) {
+
+    flag=1;
+ 
+    let qty=parseInt(prompt("Enter quantity:"));
+ 
+    if (qty<=books[i].qty) {
+
+      let bill=qty*books[i].price;
+
+      console.log(`Bill is: ${bill}`);
+
+    } else {
+
+      console.log("No stock available");
+
+    }
+
+    break;
+
+  }
+
+}
+ 
+if (flag==0) {
+
+  console.log("Book not available");
+
+}
+
+//Using map
+
+
+
+let books=[{name:"dsa",price:200,city:["pune","delhi"],qty:10},
+{name:"dsa",price:200,city:["pune","delhi"],qty:10},
+{name:"c++",price:300,city:["pune","mumbai"],qty:20},
+{name:"dbms",price:700,city:["pune","delhi"],qty:80},
+{name:"dsa",price:200,city:["mumbai","delhi"],qty:10}
+]
+let data=books.map((i)=>(i.name))
+console.log(data)
+
+
+
+
+ let books=[{name:"dsa",price:200,city:["pune","delhi"],qty:10},
+{name:"dsa",price:200,city:["pune","delhi"],qty:10},
+{name:"c++",price:300,city:["pune","mumbai"],qty:20},
+{name:"dbms",price:700,city:["pune","delhi"],qty:80},
+{name:"dsa",price:200,city:["mumbai","delhi"],qty:10}
+]
+ 
+let data=books.map((temp)=>
+{
+    if(temp.name!="dbms")//will deelete the book dbms
+    {
+        return temp;
+    }
+})
+ 
+books=data
+console.log(books)
+let books=[{name:"dsa",price:200,city:["pune","delhi"],qty:10},
+
+{name:"dsa",price:200,city:["pune","delhi"],qty:10},
+
+{name:"c++",price:300,city:["pune","mumbai"],qty:20},
+
+{name:"dbms",price:700,city:["pune","delhi"],qty:80},
+
+{name:"dsa",price:200,city:["mumbai","delhi"],qty:10}
+
+]
+ 
+let data=books.map((temp)=>
+
+{
+
+     if(temp.name=="dbms")
+
+     {
+
+        return {...temp,price:900}///update
+
+     }
+
+     else
+
+     {
+
+         return temp
+
+     }
+
+
+})
+ 
+ 
+books=data
+
+console.log(data)
+ 
+ 
+
+ 
+/// add new book
+
+let books = [
+  { name: "dsa", price: 200, city: ["pune", "delhi"], qty: 10 },
+  { name: "dsa", price: 200, city: ["pune", "delhi"], qty: 10 },
+  { name: "c++", price: 300, city: ["pune", "mumbai"], qty: 20 },
+  { name: "dbms", price: 700, city: ["pune", "delhi"], qty: 80 },
+  { name: "dsa", price: 200, city: ["mumbai", "delhi"], qty: 10 }
+];
+
+let nbook = { name: "maths", price: 900, city: ["mumbai", "delhi"], qty: 90 };
+
+// Add using push
+books.push(nbook);
+//using spread operator 
+books=[...books,nbook]
+
+console.log(books);
+
+
+//to display names that contain sharma
+let books=[{name:"core java",price:200,city:["pune","delhi"],qty:10},
+{name:"adv java",price:200,city:["pune","delhi"],qty:10},
+{name:"c++",price:300,city:["pune","mumbai"],qty:20},
+{name:"java script",price:700,city:["pune","delhi"],qty:80},
+{name:"dsa",price:200,city:["mumbai","delhi"],qty:10}
+]
+ 
+// show name of those books (java)
+ 
+let name="asha sharma"
+ 
+if(name.includes("sharma"))
+{
+    console.log("yes")
+}
+else
+{
+   console.log("no") 
+}
+ 
+
+//usinf filter to show only java books
+let books = [
+  { name: "core java", price: 500, city: ["chennai", "bangalore"], qty: 15 },
+  { name: "c++", price: 300, city: ["pune", "mumbai"], qty: 20 },
+  { name: "javascript", price: 450, city: ["delhi"], qty: 12 },
+  { name: "python", price: 600, city: ["hyderabad"], qty: 8 },
+  { name: "advanced java", price: 550, city: ["mumbai", "pune"], qty: 10 },
+  { name: "dbms", price: 700, city: ["coimbatore"], qty: 5 }
+];
+
+// Filter books with "java" in the name
+let javaBooks = books.filter(book => book.name.includes("java"));
+
+// Print details
+console.log(javaBooks);
+}
+
+
+//to filter books that contain java 
+
+let books = [
+  { name: "core java", price: 500, city: ["chennai", "bangalore"], qty: 15 },
+  { name: "c++", price: 300, city: ["pune", "mumbai"], qty: 20 },
+  { name: "javascript", price: 450, city: ["delhi"], qty: 12 },
+  { name: "python", price: 600, city: ["hyderabad"], qty: 8 },
+  { name: "advanced java", price: 550, city: ["mumbai", "pune"], qty: 10 },
+  { name: "dbms", price: 700, city: ["coimbatore"], qty: 5 }
+];
+
+// Filter books with "java" in the name
+let javaBooks = books.filter(book => book.name.includes("java"));
+
+// Print details
+for (let i = 0; i < javaBooks.length; i++) {
+  console.log(`Name: ${javaBooks[i].name}`);
+  console.log(`Price: ₹${javaBooks[i].price}`);
+  console.log(`Available in: ${javaBooks[i].city.join(", ")}`);
+  console.log(`Quantity: ${javaBooks[i].qty}`);
+  console.log("------------------------");
+}
+
+// synchornization Approach- Used to block the next operation until it completes 
+
+let employees = [
+    { empId: 101, name: "Raj", salary: 50000, dept: "HR" },
+    { empId: 102, name: "Simran", salary: 60000, dept: "IT" },
+    { empId: 103, name: "Amit", salary: 55000, dept: "Finance" },
+    { empId: 104, name: "Priya", salary: 52000, dept: "IT" },
+    { empId: 105, name: "Anil", salary: 58000, dept: "HR" },
+    { empId: 106, name: "Ravi", salary: 62000, dept: "Finance" },
+    { empId: 107, name: "Pooja", salary: 51000, dept: "Admin" },
+    { empId: 108, name: "Sunil", salary: 54000, dept: "IT" },
+    { empId: 109, name: "Kiran", salary: 63000, dept: "Marketing" },
+    { empId: 110, name: "Neha", salary: 57000, dept: "HR" }
+];
+
+let choice = prompt(`MENU:
+1. Add New Employee
+2. Modify Salary
+3. Remove Employee
+4. Search by Employee ID
+Enter your choice:`);
+
+if (choice == 1) {
+    // Add new employee
+    let id = parseInt(prompt("Enter Employee ID:"));
+    let name = prompt("Enter Name:");
+    let salary = parseFloat(prompt("Enter Salary:"));
+    let dept = prompt("Enter Department:");
+    employees.push({ empId: id, name: name, salary: salary, dept: dept });
+    console.logEmployee Added Successfully");
+    console.log(employees);
+
+} else if (choice == 2) {
+    // Modify salary
+    let id = parseInt(prompt("Enter Employee ID to Modify Salary:"));
+    let found = false;
+    for (let i = 0; i < employees.length; i++) {
+        if (employees[i].empId === id) {
+            let newSalary = parseFloat(prompt("Enter New Salary:"));
+            employees[i].salary = newSalary;
+            found = true;
+            console.log("✅ Salary Updated");
+
+            console.log(employees[i]);
+            break;
+        }
+    }
+    if (!found) {
+        console.log("❌ Employee not found");
+    }
+
+} else if (choice == 3) {
+    // Remove employee using filter
+    let id = parseInt(prompt("Enter Employee ID to Remove:"));
+    let initialLength = employees.length;
+    employees = employees.filter(emp => emp.empId !== id);
+
+    if (employees.length < initialLength) {
+        console.log(" Employee Removed");
+        console.log(employees);
+    } else {
+        console.log(" Employee not found");
+    }
+
+} else if (choice == 4) {
+    // Search by employee ID
+    let id = parseInt(prompt("Enter Employee ID to Search:"));
+    let emp = employees.find(emp => emp.empId === id);
+    if (emp) {
+        console.log(" Employee Found");
+        console.log(emp);
+    } else {
+        console.log("Employee not found");
+    }
+
+} else {
+    alert("❌ Invalid choice");
+}
+
+// setTimeout is a JavaScript function used to delay the execution of a block of code by a specified amount of time (in milliseconds).
+Parameters:
+Callback function
+– The function you want to execute after the delay.
+– Can be anonymous or a named function.
+
+Delay time (in milliseconds)
+– The amount of time to wait before executing the function.
+– Example: 2000 means 2 seconds.
+
+
+
+// synchronization Each line of code runs one after the other, in order.The next task waits until the current one finishes. 
+
+// Asynchronization in JavaScript means allowing certain operations (like API calls, file loading, or timers) to happen without blocking the rest of the program. This helps JavaScript handle multiple tasks smoothly, even though it’s single-threaded.
+
+//promisees func we are using async is been converted to sync, whenever a funstion behaves like async promises is used to cinvert them into syn 
+
+//Promise code
+
+
+
+let Payprom=new Promise((resolve,reject)=>
+
+{
+
+    let flag=true
+
+      setTimeout(()=>
+
+      {
+
+          if(flag==true)
+
+          {
+
+              resolve("payment done")
+
+          }
+
+          else
+
+          {
+
+              reject("payment cancel")
+
+          }
+
+      },2000)
+
+})
+ 
+ 
+ 
+console.log("adding items to  cart")
+ 
+Payprom.
+
+then((res)=>
+
+{console.log(res)
+
+console.log("Delivery")
+
+})
+ 
+.catch((err)=>console.log(err))
+
+
+
+//Here it converts the async to sync 
+
